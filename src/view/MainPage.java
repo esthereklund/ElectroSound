@@ -14,6 +14,7 @@ public class MainPage extends JFrame{
 		setResizable(false);
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		//Background
 		ImageIcon img = new ImageIcon(getClass().getResource("/images/night.jpg"));
 		JLabel backGround = new JLabel("", img, JLabel.CENTER);
@@ -22,8 +23,12 @@ public class MainPage extends JFrame{
 		
 		//Add logo
 		JLabel logo = new Logo(); 
-
 		add(logo);
+		
+		// Add Warenkorb
+		JLabel vinyl = new Vinyl();
+		add(vinyl);
+		
 		//Add menuPanel
 		JPanel menuPanel = new MenuPanel();
 		add(menuPanel);
@@ -32,8 +37,7 @@ public class MainPage extends JFrame{
 		JPanel smallPanel = new SmallPanel();
 		add(smallPanel);
 		
-
-		// Add Warenkorb
+		
 		
 		//Add Buttons
 		
