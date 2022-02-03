@@ -25,7 +25,7 @@ public class MainPage extends JFrame{
 		JLabel logo = new Logo(); 
 		add(logo);
 		
-		// Add Warenkorb
+		// Add basket
 		JLabel vinyl = new Vinyl();
 		add(vinyl);
 		
