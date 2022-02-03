@@ -1,6 +1,7 @@
 package view.menu_components;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JButton;
 
@@ -13,6 +14,8 @@ public class MenuButton extends JButton{
 		super(name);
 		this.setBackground(petrol);
 		this.setForeground(Color.white);
-	//	this.setSize(60, 40);
+		Font f = new Font("Calibri", Font.TRUETYPE_FONT, 18);
+		this.setFont(f);
+//		this.setSize(60, 40);
 	} 
 }
