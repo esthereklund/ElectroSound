@@ -38,12 +38,14 @@ public class MainPage extends JFrame{
 		add(smallPanel);
 		
 		
-		
-		//Add Buttons
-		
 		//Add Links
+		JPanel linkspanel = new Linkpanel();
+		add(linkspanel);
 		
 		
+		//Add Downpanel
+//		JPanel downpanel = new Downpanel();
+//		add(downpanel);
 		
 		
 		

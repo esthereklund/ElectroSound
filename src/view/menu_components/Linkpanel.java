@@ -1,19 +1,16 @@
 package view.menu_components;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-public class Downpanel extends JPanel{
+public class Linkpanel extends JPanel {
 	
-	public Downpanel() {
-		this.setBounds(0, 900, 500, 100);
+	public Linkpanel() {
+		this.setBounds(900, 0, 500, 100);
 		this.setOpaque(false);
 		this.setLayout(new FlowLayout(FlowLayout.RIGHT, 30 ,10 ));
 		
