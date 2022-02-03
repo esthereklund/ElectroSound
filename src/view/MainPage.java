@@ -4,17 +4,46 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import view.menu_components.*;
+
 
 public class MainPage extends JFrame{
 	MainPage(){
-		JLabel backGround;
+		
 		setSize(1400, 1010);
 		setResizable(false);
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//Background
 		ImageIcon img = new ImageIcon(getClass().getResource("/images/night.jpg"));
-		backGround = new JLabel("", img, JLabel.CENTER);
+		JLabel backGround = new JLabel("", img, JLabel.CENTER);
 		setContentPane(backGround);
+		
+		
+		//Add logo
+		JLabel logo = new Logo(); 
+
+		add(logo);
+		//Add menuPanel
+		JPanel menuPanel = new MenuPanel();
+		add(menuPanel);
+		
+		//Add submenuPanel
+		JPanel smallPanel = new SmallPanel();
+		add(smallPanel);
+		
+
+		// Add Warenkorb
+		
+		//Add Buttons
+		
+		//Add Links
+		
+		
+		
+		
+		
+		
 		
 		setVisible(true);
 	}
