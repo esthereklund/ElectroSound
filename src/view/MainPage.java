@@ -47,6 +47,9 @@ public class MainPage extends JFrame{
 //		JPanel downpanel = new Downpanel();
 //		add(downpanel);
 		
+		//Add Middle Panel
+		JPanel middlePanel = new MiddlePanel();
+		add(middlePanel);
 		
 		
 		
