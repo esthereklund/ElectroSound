@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Logo extends JLabel{
 	public Logo() {
@@ -15,6 +16,7 @@ public class Logo extends JLabel{
 		this.setIcon(scaledlogo);
 		this.setBounds(0, 0, 250, 175);
 		
+
 		
 	} 
 	

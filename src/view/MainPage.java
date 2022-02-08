@@ -1,14 +1,13 @@
 package view;
 
 import java.awt.*;
-
 import javax.swing.*;
-
 import view.menu_components.*;
 
 
 public class MainPage extends JFrame{
-		private MainPanel mainPanel;
+		
+	private MainPanel mainPanel;
 
 	public MainPage(){
 		
@@ -17,44 +16,9 @@ public class MainPage extends JFrame{
 		this.setLayout(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setTitle("ElectroSound");
+		this.setMainPanel(new MainPanel());
 		this.setContentPane(this.getMainPanel());
-		
-	
-		
-		
-		
-		//Add logo
-		JLabel logo = new Logo(); 
-		add(logo);
-		
-		// Add basket
-		JLabel vinyl = new Vinyl();
-		add(vinyl);
-		
-		//Add menuPanel
-		JPanel menuPanel = new MenuPanel();
-		add(menuPanel);
-		
-		//Add submenuPanel
-		JPanel smallPanel = new SmallPanel();
-		add(smallPanel);
-		
-		
-		//Add Links
-		JPanel linkspanel = new Linkpanel();
-		add(linkspanel);
-		
-		
-		//Add Info Panel
-		JPanel infoPanel = new InfoPanel();
-		add(infoPanel);
-		
-		//Add Middle Panel
-		JPanel middlePanel = new MiddlePanel();
-		add(middlePanel);
-		
-		
-		
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage(MainPage.class.getResource("/images/vinyl.png")));
 		
 		setVisible(true);
 	}

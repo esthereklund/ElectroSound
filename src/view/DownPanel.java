@@ -1,4 +1,4 @@
-package view.menu_components;
+package view;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -7,10 +7,9 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Linkpanel extends JPanel {
-	
-	public Linkpanel() {
-		this.setBounds(900, 0, 500, 100);
+public class DownPanel extends JPanel{
+	public DownPanel() {
+		this.setBounds(0, 900, 500, 100);
 		this.setOpaque(false);
 		this.setLayout(new FlowLayout(FlowLayout.RIGHT, 30 ,10 ));
 		
