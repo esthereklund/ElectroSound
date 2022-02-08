@@ -20,12 +20,20 @@ public class MainPanel extends JPanel{
 	private UpperPanel upperPanel;
 	private JLabel backGround;
 	private DownPanel downPanel;
-	
+	private CenterPanel centerPanel;
+
 	public MainPanel() {
 		this.setLayout(null);
 		this.setBounds(0, 0, 1400, 1050);
 		this.setBackground(Color.black);
+		
 		this.setUpperPanel(new UpperPanel());
+		this.setDownPanel(new DownPanel());
+		this.add(this.getDownPanel());
+		this.setCenterPanel(new CenterPanel());
+		this.add(this.getCenterPanel());
+		this.add(this.getUpperPanel());
+		
 		this.setBackGround(new JLabel());
 		this.getBackGround().setBounds(0, 0, 1400, 933);
 		this.getBackGround().setLayout(null);
@@ -33,18 +41,9 @@ public class MainPanel extends JPanel{
 		Image night = u_night.getImage().getScaledInstance(1400, 933, 0);
 		this.getBackGround().setIcon(new ImageIcon(night));
 		this.add(this.getBackGround());
-		this.getBackGround().add(this.getUpperPanel());
 		
+	//	this.getBackGround().add(this.getUpperPanel());
 		
-		
-
-//		//Add Info Panel
-//		JPanel infoPanel = new InfoPanel();
-//		add(infoPanel);
-//		
-//		//Add Middle Panel
-//		JPanel middlePanel = new MiddlePanel();
-//		add(middlePanel);
 		
 	}
 	
@@ -63,4 +62,21 @@ public class MainPanel extends JPanel{
 	public void setBackGround(JLabel backGround) {
 		this.backGround = backGround;
 	}
+	
+	public DownPanel getDownPanel() {
+		return downPanel;
+	}
+
+	public void setDownPanel(DownPanel downPanel) {
+		this.downPanel = downPanel;
+	}
+
+	public CenterPanel getCenterPanel() {
+		return centerPanel;
+	}
+
+	public void setCenterPanel(CenterPanel centerPanel) {
+		this.centerPanel = centerPanel;
+	}
+	
 }
