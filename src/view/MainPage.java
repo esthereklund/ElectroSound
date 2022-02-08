@@ -8,17 +8,19 @@ import view.menu_components.*;
 
 
 public class MainPage extends JFrame{
-	MainPage(){
+		private MainPanel mainPanel;
+
+	public MainPage(){
 		
-		setSize(1400, 1010);
-		setResizable(false);
-		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(1400, 1050);
+		this.setResizable(false);
+		this.setLayout(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("ElectroSound");
+		this.setContentPane(this.getMainPanel());
 		
-		//Background
-		ImageIcon img = new ImageIcon(getClass().getResource("/images/night.jpg"));
-		JLabel backGround = new JLabel("", img, JLabel.CENTER);
-		setContentPane(backGround);
+	
+		
 		
 		
 		//Add logo
@@ -43,9 +45,9 @@ public class MainPage extends JFrame{
 		add(linkspanel);
 		
 		
-		//Add Downpanel
-//		JPanel downpanel = new Downpanel();
-//		add(downpanel);
+		//Add Info Panel
+		JPanel infoPanel = new InfoPanel();
+		add(infoPanel);
 		
 		//Add Middle Panel
 		JPanel middlePanel = new MiddlePanel();
@@ -57,9 +59,12 @@ public class MainPage extends JFrame{
 		setVisible(true);
 	}
 	
-	public static void main(String args[]) {
-		
-		new MainPage();
+	
+	public MainPanel getMainPanel() {
+		return mainPanel;
+	}
+	public void setMainPanel(MainPanel mainPanel) {
+		this.mainPanel = mainPanel;
 	}
 	
 	
