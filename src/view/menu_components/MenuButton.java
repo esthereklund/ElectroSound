@@ -1,6 +1,7 @@
 package view.menu_components;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -14,6 +15,7 @@ public class MenuButton extends JButton{
 		Color sky = new Color(153,255,255);
 		this.setBackground(petrol);
 		this.setForeground(Color.white);
+	
 		Font f = new Font("Calibri", Font.TRUETYPE_FONT, 18);
 		this.setFont(f);
 		

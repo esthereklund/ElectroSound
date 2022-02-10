@@ -8,27 +8,22 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
 public class Action extends JPanel{
-	private JLabel action;
+	private CatLabel catLabel;
 	public Action() {
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		this.setBounds(784, 37, 310, 310);
+		this.setBounds(406, 37, 310, 310);
 		this.setLayout(null);
-
-		this.setAction(new JLabel());
-		this.getAction().setBounds(1, 1, 308, 308);
-		ImageIcon u_right = new ImageIcon(getClass().getResource("/images/right.jpg"));
-		Image right = u_right.getImage().getScaledInstance(308, 308, 0);
-		this.getAction().setIcon(new ImageIcon(right));
-		this.add(this.getAction());
 		
-	
+		this.setCatLabel(new CatLabel("Angebote", "/images/central.jpg"));
+		this.add(this.getCatLabel());
 
 	}
-	public JLabel getAction() {
-		return action;
+	public CatLabel getCatLabel() {
+		return catLabel;
 	}
-	public void setAction(JLabel action) {
-		this.action = action;
+
+	public void setCatLabel(CatLabel catLabel) {
+		this.catLabel = catLabel;
 	}
 	
 }

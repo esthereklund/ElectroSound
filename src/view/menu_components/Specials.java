@@ -5,32 +5,26 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
 public class Specials extends JPanel{
-	private JLabel special;
-	
+	private CatLabel catLabel;
 	public Specials() {
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		this.setBounds(406, 37, 310, 310);
+		this.setBounds(784, 37, 310, 310);
 		this.setLayout(null);
+		
+		this.setCatLabel(new CatLabel("Special Releases", "/images/db.jpg"));
+		this.add(this.getCatLabel());
 
-		this.setSpecial(new JLabel());
-		this.getSpecial().setBounds(1, 1, 308, 308);
-		ImageIcon u_central = new ImageIcon(getClass().getResource("/images/central.jpg"));
-		Image central = u_central.getImage().getScaledInstance(308, 308, 0);
-		this.getSpecial().setIcon(new ImageIcon(central));
-		this.add(this.getSpecial());
-		
-		
+	}
+	public CatLabel getCatLabel() {
+		return catLabel;
 	}
 
-	public JLabel getSpecial() {
-		return special;
-	}
-
-	public void setSpecial(JLabel special) {
-		this.special = special;
+	public void setCatLabel(CatLabel catLabel) {
+		this.catLabel = catLabel;
 	}
 
 	

@@ -8,28 +8,26 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
 public class Newness extends JPanel{
-	private JLabel newness;
-	
+	private CatLabel catLabel;
+//	private MyLabel18Bold newsText;
+
 	public Newness() {
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		this.setBounds(28, 37, 310, 310);
 		this.setLayout(null);
 		
-		this.setNewness(new JLabel());
-		this.getNewness().setBounds(1, 1, 308, 308);
-		ImageIcon u_left = new ImageIcon(getClass().getResource("/images/left.jpg"));
-		Image left = u_left.getImage().getScaledInstance(308, 308, 0);
-		
-		this.getNewness().setIcon(new ImageIcon(left));
-		this.add(this.getNewness());
+		this.setCatLabel(new CatLabel("Neue Produkte", "/images/left.jpg"));
+		this.add(this.getCatLabel());
+
 	}
 
-	public JLabel getNewness() {
-		return newness;
+	public CatLabel getCatLabel() {
+		return catLabel;
 	}
 
-	public void setNewness(JLabel newness) {
-		this.newness = newness;
+	public void setCatLabel(CatLabel catLabel) {
+		this.catLabel = catLabel;
 	}
+
 	
 }
