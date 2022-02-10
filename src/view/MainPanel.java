@@ -7,19 +7,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import view.menu_components.InfoPanel;
-import view.menu_components.LabelPanel;
-import view.menu_components.Logo;
-import view.menu_components.MenuPanel;
-import view.menu_components.MiddlePanel;
-import view.menu_components.SmallPanel;
-import view.menu_components.Vinyl;
+import view.menu_components.footer.InfoPanel;
+import view.menu_components.header.LabelPanel;
+import view.menu_components.header.Logo;
+import view.menu_components.header.MenuPanel;
+import view.menu_components.header.SmallPanel;
+import view.menu_components.header.Vinyl;
 
 public class MainPanel extends JPanel{
 	
-	private UpperPanel upperPanel;
+	private HeaderPanel upperPanel;
 	private JLabel backGround;
-	private DownPanel downPanel;
+	private FooterPanel downPanel;
 	private CenterPanel centerPanel;
 
 	public MainPanel() {
@@ -27,8 +26,8 @@ public class MainPanel extends JPanel{
 		this.setBounds(0, 0, 1400, 1050);
 		this.setBackground(Color.black);
 		
-		this.setUpperPanel(new UpperPanel());
-		this.setDownPanel(new DownPanel());
+		this.setUpperPanel(new HeaderPanel());
+		this.setDownPanel(new FooterPanel());
 		this.add(this.getDownPanel());
 		this.setCenterPanel(new CenterPanel());
 		this.add(this.getCenterPanel());
@@ -47,11 +46,11 @@ public class MainPanel extends JPanel{
 		
 	}
 	
-	public UpperPanel getUpperPanel() {
+	public HeaderPanel getUpperPanel() {
 		return upperPanel;
 	}
 
-	public void setUpperPanel(UpperPanel upperPanel) {
+	public void setUpperPanel(HeaderPanel upperPanel) {
 		this.upperPanel = upperPanel;
 	}
 
@@ -63,11 +62,11 @@ public class MainPanel extends JPanel{
 		this.backGround = backGround;
 	}
 	
-	public DownPanel getDownPanel() {
+	public FooterPanel getDownPanel() {
 		return downPanel;
 	}
 
-	public void setDownPanel(DownPanel downPanel) {
+	public void setDownPanel(FooterPanel downPanel) {
 		this.downPanel = downPanel;
 	}
 

@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import view.menu_components.buttons.ConfirmButton;
+import view.menu_components.labels.MyLabel18;
+import view.menu_components.labels.TitelLabel;
+
 public class GuestPage extends JPanel{
 	private TitelLabel title;
 	private JPanel formular;
@@ -31,7 +35,7 @@ public class GuestPage extends JPanel{
 	private JTextField index_;
 	private JTextField city_;
 	
-	private YelButton confirmButton;
+	private ConfirmButton confirmButton;
 	
 	public GuestPage() {
 		this.setLayout(null);
@@ -115,7 +119,7 @@ public class GuestPage extends JPanel{
 		this.getFormular().add(this.getIndex_());
 		this.getFormular().add(this.getCity_());
 		
-		this.setConfirmButton(new YelButton("Verbindlich bestellen"));
+		this.setConfirmButton(new ConfirmButton("Verbindlich bestellen"));
 		this.getConfirmButton().setBounds(750, 380, 160, 35);
 		this.getFormular().add(this.getConfirmButton());
 	}
@@ -280,11 +284,11 @@ public class GuestPage extends JPanel{
 		this.city_ = city_;
 	}
 
-	public YelButton getConfirmButton() {
+	public ConfirmButton getConfirmButton() {
 		return confirmButton;
 	}
 
-	public void setConfirmButton(YelButton confirmButton) {
+	public void setConfirmButton(ConfirmButton confirmButton) {
 		this.confirmButton = confirmButton;
 	}
 	

@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 
+import view.menu_components.front.Action;
+import view.menu_components.front.Newness;
+import view.menu_components.front.Specials;
+
 public class FirstPage extends JPanel{
 	private Newness news;
 	private Specials special;
