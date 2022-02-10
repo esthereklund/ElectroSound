@@ -11,6 +11,7 @@ public class CenterPanel extends JPanel{
 	private GuestPage guest;
 	private ProductPage product;
 	private ListPanel listPanel;
+	private BasketPage basket;
 	
 	public CenterPanel() {
 		this.setLayout(null);
@@ -27,9 +28,12 @@ public class CenterPanel extends JPanel{
 //		this.setProduct(new ProductPage());
 //		this.add(this.getProduct());
 		
-		this.setListPanel(new ListPanel());
-		this.add(this.getListPanel());
-			
+//		this.setListPanel(new ListPanel());
+//		this.add(this.getListPanel());
+		
+		this.setBasket(new BasketPage());
+		this.add(this.getBasket());
+		
 		
 	}
 
@@ -63,6 +67,14 @@ public class CenterPanel extends JPanel{
 
 	public void setListPanel(ListPanel listPanel) {
 		this.listPanel = listPanel;
+	}
+
+	public BasketPage getBasket() {
+		return basket;
+	}
+
+	public void setBasket(BasketPage basket) {
+		this.basket = basket;
 	}
 	
 }
