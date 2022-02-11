@@ -25,6 +25,7 @@ public class MainPanel extends JPanel{
 		this.setLayout(null);
 		this.setBounds(0, 0, 1400, 1050);
 		this.setBackground(Color.black);
+//		this.getCenterPanel().getListPanel().getTitle().setText((this.getUpperPanel().getMenuPanel().getSpecials().getText()));
 		
 		this.setUpperPanel(new HeaderPanel());
 		this.setDownPanel(new FooterPanel());

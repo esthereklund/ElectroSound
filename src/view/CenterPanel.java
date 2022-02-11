@@ -16,27 +16,43 @@ public class CenterPanel extends JPanel{
 	public CenterPanel() {
 		this.setLayout(null);
 		this.setBounds(140, 240, 1120, 595);
-//		this.setBackground(Color.blue);
 		this.setOpaque(false);
 		
-//		this.setFirst(new FirstPage());
-//		this.add(this.getFirst());
+		this.setFirst(new FirstPage());
+		this.add(this.getFirst());
 		
-//		this.setGuest(new GuestPage());
-//		this.add(this.getGuest());
+		this.setGuest(new GuestPage());
+		this.getGuest().setVisible(false);
+		this.add(this.getGuest());
 		
-//		this.setProduct(new ProductPage());
-//		this.add(this.getProduct());
 		
-//		this.setListPanel(new ListPanel());
-//		this.add(this.getListPanel());
+		this.setProduct(new ProductPage());
+		this.getProduct().setVisible(false);
+		this.add(this.getProduct());
+		
+		this.setListPanel(new ListPanel());
+		this.getListPanel().setVisible(false);
+	//	this.getListPanel().getTitle().setText(this.get);
+		this.add(this.getListPanel());
 		
 		this.setBasket(new BasketPage());
+		this.getBasket().setVisible(false);
 		this.add(this.getBasket());
 		
 		
 	}
-
+	public void changeView(boolean first, boolean guest, boolean productPage, boolean listPanel, boolean basketPage) {
+		this.getFirst().setVisible(first);
+		this.getGuest().setVisible(guest);
+		this.getProduct().setVisible(productPage);
+		this.getListPanel().setVisible(listPanel);
+		this.getBasket().setVisible(basketPage);
+		
+	}
+	
+	
+	
+	
 	public FirstPage getFirst() {
 		return first;
 	}
@@ -76,5 +92,7 @@ public class CenterPanel extends JPanel{
 	public void setBasket(BasketPage basket) {
 		this.basket = basket;
 	}
+
+	
 	
 }

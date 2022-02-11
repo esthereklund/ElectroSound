@@ -12,11 +12,7 @@ import view.menu_components.labels.MyLabel18;
 import view.menu_components.labels.TitelLabel;
 
 public class GuestPage extends JPanel{
-	private TitelLabel title;
-	private JPanel formular;
-	private JPanel formularTitle;
-	private MyLabel18 formularTextTitle;
-	private JTextArea welcomeText;
+	
 	
 	private JLabel mail;
 	private JLabel gName;
@@ -42,30 +38,30 @@ public class GuestPage extends JPanel{
 		this.setBounds(0, 0, 1120, 595);
 		this.setOpaque(false);
 		
-		this.setTitle(new TitelLabel("Ich möchte als Gast bestellen"));
-		this.add(this.getTitle());
+		TitelLabel titel = new TitelLabel("Ich möchte als Gast bestellen");
+		this.add(titel);
 		
-		this.setFormular(new JPanel());
-		this.getFormular().setLayout(null);
-		this.getFormular().setBounds(0, 40, 1120, 500);
-		this.add(this.getFormular());
+		JPanel formular = new JPanel();
+		formular.setLayout(null);
+		formular.setBounds(0, 40, 1120, 500);
+		this.add(formular);
 		
-		this.setFormularTitle(new JPanel());
-		this.getFormularTitle().setBounds(0,  0, 1120, 35);
-		this.getFormularTitle().setLayout(null);
-		this.getFormularTitle().setBackground(new Color(0, 102, 102));
-		this.getFormular().add(this.getFormularTitle());
+		JPanel formularTitle= new JPanel();
+		formularTitle.setBounds(0,  0, 1120, 35);
+		formularTitle.setLayout(null);
+		formularTitle.setBackground(new Color(0, 102, 102));
+		formular.add(formularTitle);
 			
-		this.setFormularTextTitle(new MyLabel18("Füllen Sie bitte das Formular aus"));
-		this.getFormularTextTitle().setBounds(10, 5, 300, 30);
-		this.getFormularTitle().add(this.getFormularTextTitle());
+		MyLabel18 formularTextTitle = new MyLabel18("Füllen Sie bitte das Formular aus");
+		formularTextTitle.setBounds(10, 5, 300, 30);
+		formularTitle.add(formularTextTitle);
 		
-		this.setWelcomeText(new JTextArea());
-		this.getWelcomeText().setBounds(80, 60, 960, 68);
-		this.getWelcomeText().setEditable(false);
-		this.getWelcomeText().setLineWrap(true);
-		this.getWelcomeText().setText("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ");
-		this.getFormular().add(this.getWelcomeText());
+		JTextArea welcomeText = new JTextArea();
+		welcomeText.setBounds(80, 60, 960, 68);
+		welcomeText.setEditable(false);
+		welcomeText.setLineWrap(true);
+		welcomeText.setText("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ");
+		formular.add(welcomeText);
 		
 		
 		// Labels
@@ -86,13 +82,13 @@ public class GuestPage extends JPanel{
 		this.getIndex().setBounds(430, 250, 75, 23);
 		this.getCity().setBounds(430, 350, 75, 23);
 		
-		this.getFormular().add(this.getMail());
-		this.getFormular().add(this.getGName());
-		this.getFormular().add(this.getSurname());
-		this.getFormular().add(this.getStreet());
-		this.getFormular().add(this.getNumber());
-		this.getFormular().add(this.getIndex());
-		this.getFormular().add(this.getCity());
+		formular.add(this.getMail());
+		formular.add(this.getGName());
+		formular.add(this.getSurname());
+		formular.add(this.getStreet());
+		formular.add(this.getNumber());
+		formular.add(this.getIndex());
+		formular.add(this.getCity());
 		
 		//Fields
 		this.setMail_(new JTextField());
@@ -111,58 +107,19 @@ public class GuestPage extends JPanel{
 		this.getIndex_().setBounds(430, 280, 260, 35);
 		this.getCity_().setBounds(430, 380, 260, 35);
 		
-		this.getFormular().add(this.getMail_());
-		this.getFormular().add(this.getName_());
-		this.getFormular().add(this.getSurname_());
-		this.getFormular().add(this.getStreet_());
-		this.getFormular().add(this.getNumber_());
-		this.getFormular().add(this.getIndex_());
-		this.getFormular().add(this.getCity_());
+		formular.add(this.getMail_());
+		formular.add(this.getName_());
+		formular.add(this.getSurname_());
+		formular.add(this.getStreet_());
+		formular.add(this.getNumber_());
+		formular.add(this.getIndex_());
+		formular.add(this.getCity_());
 		
 		this.setConfirmButton(new ConfirmButton("Verbindlich bestellen"));
 		this.getConfirmButton().setBounds(750, 380, 160, 35);
-		this.getFormular().add(this.getConfirmButton());
+		formular.add(this.getConfirmButton());
 	}
 
-	public TitelLabel getTitle() {
-		return title;
-	}
-
-	public void setTitle(TitelLabel title) {
-		this.title = title;
-	}
-
-	public JPanel getFormular() {
-		return formular;
-	}
-
-	public void setFormular(JPanel formular) {
-		this.formular = formular;
-	}
-
-	public JPanel getFormularTitle() {
-		return formularTitle;
-	}
-
-	public void setFormularTitle(JPanel formularTitle) {
-		this.formularTitle = formularTitle;
-	}
-
-	public MyLabel18 getFormularTextTitle() {
-		return formularTextTitle;
-	}
-
-	public void setFormularTextTitle(MyLabel18 formularTextTitle) {
-		this.formularTextTitle = formularTextTitle;
-	}
-
-	public JTextArea getWelcomeText() {
-		return welcomeText;
-	}
-
-	public void setWelcomeText(JTextArea welcomeText) {
-		this.welcomeText = welcomeText;
-	}
 
 	public JLabel getMail() {
 		return mail;

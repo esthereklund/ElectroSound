@@ -1,11 +1,14 @@
 package main;
 
+import java.awt.EventQueue;
+
+import controller.MainController;
 import view.MainPage;
 
 public class Main {
 
 	public static void main(String args[]) {
-		
-		MainPage main = new MainPage();
+		EventQueue.invokeLater(()->
+		new MainController());
 	}
 }

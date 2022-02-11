@@ -1,9 +1,13 @@
 package view.menu_components;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.ScrollPane;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
@@ -25,6 +29,7 @@ public class ListPanel extends JPanel{
 	private TitelLabel title;
 	private JPanel scrollbase;
 	private JComboBox combobox;
+	private List<ProductItem> results;
 	
 	public ListPanel() {
 		this.setLayout(null);
@@ -32,6 +37,7 @@ public class ListPanel extends JPanel{
 		this.setOpaque(false);
 		
 		this.setTitle(new TitelLabel("Neue Produkte"));
+		
 		this.add(this.getTitle());
 		
 		this.setCombobox(new JComboBox());
@@ -44,22 +50,25 @@ public class ListPanel extends JPanel{
 		this.getScrollbase().setLayout(null);
 		this.add(this.getScrollbase());
 		
-		JScrollPane spaneHere = new JScrollPane();
-		spaneHere.setBounds(0, 0, 886, 529);
-		spaneHere.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-	//	spaneHere.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		this.getScrollbase().add(spaneHere);
-		int numberItems = 10;
+		
+		
+		JScrollPane spane = new JScrollPane();
+		spane.setBounds(0, 0, 886, 529);
+		spane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+//		spane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		this.getScrollbase().add(spane);
+		
+	
+		this.setResults(new ArrayList<>());
+		for(int i = 0; i < 10; i++) {
+			this.getResults().add(new ProductItem());
+		}
 		
 		JPanel results = new JPanel();
-		spaneHere.setViewportView(results);
+		spane.setViewportView(results);
 		results.setLayout(new GridLayout(0, 4, 2, 2));	
-	//	results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-	//	results.setLayout(new BoxLayout());
-		
-		for(int i = 0; i<numberItems; i++) {
-			results.add(new ProductItem());
-		}
+//		results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
+		this.getResults().stream().forEach(result->results.add(result));
 		
 																			//Side Panels
 		this.setSidePanel(new SidePanel());
@@ -110,6 +119,14 @@ public class ListPanel extends JPanel{
 		this.combobox = combobox;
 	}
 
+	public List<ProductItem> getResults() {
+		return results;
+	}
+
+	public void setResults(List<ProductItem> results) {
+		this.results = results;
+	}
+	
 
 	
 }
