@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.border.BevelBorder;
 
 public class BasketItem extends JPanel{
@@ -21,7 +22,7 @@ public class BasketItem extends JPanel{
 	private JButton trash;
 	private JLabel price;
 	private JLabel total;
-	private JComboBox number; 
+	private JSpinner number; 
 	
 	public BasketItem() {
 		Font f1 = new Font("Calibri", Font.BOLD, 18);
@@ -74,8 +75,8 @@ public class BasketItem extends JPanel{
 		this.getTotal().setFont(f1);
 		add(this.getTotal());
 		
-		this.setNumber(new JComboBox());
-		this.getNumber().setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		this.setNumber(new JSpinner());
+		//this.getNumber().setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		this.getNumber().setBounds(455, 51, 46, 22);
 		add(this.getNumber());
 	}
@@ -144,11 +145,11 @@ public class BasketItem extends JPanel{
 		this.total = total;
 	}
 
-	public JComboBox getNumber() {
+	public JSpinner getNumber() {
 		return number;
 	}
 
-	public void setNumber(JComboBox number) {
+	public void setNumber(JSpinner number) {
 		this.number = number;
 	}
 	

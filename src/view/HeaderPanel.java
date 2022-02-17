@@ -1,10 +1,12 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import view.menu_components.*;
+import view.menu_components.buttons.ConfirmButton;
 import view.menu_components.header.LabelPanel;
 import view.menu_components.header.Logo;
 import view.menu_components.header.MenuPanel;
@@ -20,6 +22,8 @@ public class HeaderPanel extends JPanel {
 	private SmallPanel smallPanel;
 	private LabelPanel labelPanel;
 	private SearchField search; 
+	private JLabel warenkorb;
+	private ConfirmButton searchButton;
 	
 	public HeaderPanel() {
 
@@ -29,10 +33,12 @@ public class HeaderPanel extends JPanel {
 		
 		//Add logo
 		this.setLogo(new Logo());
+		this.getLogo().setName("Logo");
 		this.add(this.getLogo());
 		
 		// Add basket
 		this.setVinyl(new Vinyl());
+		this.getVinyl().setName("Vinyl");
 		this.add(this.getVinyl());
 		
 		//Add menuPanel
@@ -51,7 +57,9 @@ public class HeaderPanel extends JPanel {
 		this.setSearch(new SearchField());
 		this.add(this.getSearch());
 
-		
+		this.setSearchButton(new ConfirmButton("Suche"));
+		this.getSearchButton().setBounds(960, 120, 70, 25);
+		this.add(this.getSearchButton());
 	}
 
 	public Logo getLogo() {
@@ -101,5 +109,24 @@ public class HeaderPanel extends JPanel {
 	public void setSearch(SearchField search) {
 		this.search = search;
 	}
+
+	public JLabel getWarenkorb() {
+		return warenkorb;
+	}
+
+	public void setWarenkorb(JLabel warenkorb) {
+		this.warenkorb = warenkorb;
+	}
+
+	public ConfirmButton getSearchButton() {
+		return searchButton;
+	}
+
+	public void setSearchButton(ConfirmButton searchButton) {
+		this.searchButton = searchButton;
+	}
+
+
+	
 	
 }

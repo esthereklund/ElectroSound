@@ -11,6 +11,9 @@ import java.util.List;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+
+import model.Cd;
+
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -30,14 +33,16 @@ public class ListPanel extends JPanel{
 	private JPanel scrollbase;
 	private JComboBox combobox;
 	private List<ProductItem> results;
+	private JPanel cdList;
 	
 	public ListPanel() {
 		this.setLayout(null);
 		this.setBounds(0, 0, 1120, 595);
 		this.setOpaque(false);
 		
-		this.setTitle(new TitelLabel("Neue Produkte"));
-		
+		this.setTitle(new TitelLabel(""));
+//		this.getCenterPanel().getListPanel().getTitle().setText((this.getUpperPanel().getMenuPanel().getSpecials().getName()));
+
 		this.add(this.getTitle());
 		
 		this.setCombobox(new JComboBox());
@@ -64,12 +69,13 @@ public class ListPanel extends JPanel{
 			this.getResults().add(new ProductItem());
 		}
 		
-		JPanel results = new JPanel();
-		spane.setViewportView(results);
-		results.setLayout(new GridLayout(0, 4, 2, 2));	
+//		JPanel results = new JPanel();
+		this.setCdList(new JPanel());
+		spane.setViewportView(this.getCdList());
+
 //		results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-		this.getResults().stream().forEach(result->results.add(result));
-		
+//		this.getResults().stream().forEach(result->results.add(result));
+		this.getCdList().setLayout(new GridLayout(0, 4, 2, 2));	
 																			//Side Panels
 		this.setSidePanel(new SidePanel());
 		this.add(this.getSidePanel());
@@ -78,7 +84,18 @@ public class ListPanel extends JPanel{
 		this.add(this.getSideNews());
 	
 	}
-
+	
+	public void displayResults(List<Cd> list) {
+		this.getResults().clear();
+//		System.out.println("all clear");
+		list.forEach(a-> this.getResults().add(
+				new ProductItem(a.getCdId(), a.getTitel(), a.getPreis(), a.getBeschreibung())));
+		this.getCdList().removeAll();
+		this.getResults().forEach(res->this.getCdList().add(res));
+		this.repaint();
+	}
+	
+	
 	public SidePanel getSidePanel() {
 		return sidePanel;
 	}
@@ -125,6 +142,14 @@ public class ListPanel extends JPanel{
 
 	public void setResults(List<ProductItem> results) {
 		this.results = results;
+	}
+
+	public JPanel getCdList() {
+		return cdList;
+	}
+
+	public void setCdList(JPanel cdList) {
+		this.cdList = cdList;
 	}
 	
 

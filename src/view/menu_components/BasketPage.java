@@ -3,6 +3,7 @@ package view.menu_components;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,6 +31,8 @@ public class BasketPage extends JPanel{
 	private JLabel totalCalc;
 	private JLabel mwstCalc;
 	private JLabel numberCalc;
+	private List<ProductItem> toBuy;
+	
 	public BasketPage() {
 		this.setLayout(null);
 		this.setBounds(0, 0, 1120, 595);
@@ -75,6 +78,7 @@ public class BasketPage extends JPanel{
 		this.getScrollbase().add(spaneHere);
 		
 		int numberItems = 3;
+		
 		
 		JPanel results = new JPanel();
 		spaneHere.setViewportView(results);
@@ -217,6 +221,18 @@ public class BasketPage extends JPanel{
 
 	public void setNumberCalc(JLabel numberCalc) {
 		this.numberCalc = numberCalc;
+	}
+
+
+
+	public List<ProductItem> getToBuy() {
+		return toBuy;
+	}
+
+
+
+	public void setToBuy(List<ProductItem> toBuy) {
+		this.toBuy = toBuy;
 	}
 	
 }

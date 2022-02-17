@@ -28,6 +28,7 @@ public class MenuPanel extends JPanel{
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
 		
 		this.setSpecials(new MenuButton("Specials"));
+		this.getSpecials().setName("Specials");
 		this.setAmbient(new MenuButton("Ambient"));
 		this.setBreakbeat(new MenuButton("Breakbeat"));
 		this.setDownbeat(new MenuButton("Downbeat"));

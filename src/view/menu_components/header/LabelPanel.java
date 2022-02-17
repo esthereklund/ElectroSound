@@ -15,13 +15,16 @@ public class LabelPanel extends JPanel {
 	private MyLabel16 link2;
 	
 	public LabelPanel() {
-		this.setBounds(900, 0, 500, 100);
+		this.setBounds(750, 0, 500, 100);
 		this.setOpaque(false);
 		this.setLayout(new FlowLayout(FlowLayout.RIGHT, 30 ,10 ));
 		
 		this.setLink0(new MyLabel16("Zur Kasse"));
+		this.getLink0().setName("Kasse");
 		this.setLink1(new MyLabel16("Ihr Konto"));
+		this.getLink1().setName("Konto");
 		this.setLink2(new MyLabel16("Anmelden"));
+		this.getLink2().setName("Anmelden");
 		
 		this.add(this.getLink0());
 		this.add(this.getLink1());

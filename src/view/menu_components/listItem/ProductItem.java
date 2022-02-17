@@ -20,6 +20,8 @@ public class ProductItem extends JPanel{
 	private JLabel price;
 	private ConfirmButton basket;
 	private ProductPicture picture;
+	private String titleText;
+	private double priceText;
 	
 	public ProductItem() {
 		this.setPreferredSize(new Dimension(220, 250));
@@ -27,17 +29,17 @@ public class ProductItem extends JPanel{
 		setLayout(null);
 		
 		Font f6= new Font("Calibri", Font.BOLD, 14); 
-		this.setTitle(new JLabel("Titel"));
+		this.setTitle(new JLabel(""));
 		this.getTitle().setBounds(95, 155, 36, 14);
 		this.getTitle().setFont(f6);
 		this.add(this.getTitle());
 		
-		this.setInterpret(new JLabel("Interpret"));
+		this.setInterpret(new JLabel(""));
 		this.getInterpret().setBounds(82, 173, 66, 14);
 		this.getInterpret().setFont(f6);
 		this.add(this.getInterpret());
 		
-		this.setPrice(new JLabel("24,90 EUR"));
+		this.setPrice(new JLabel(""));
 		this.getPrice().setBounds(79, 189, 66, 23);
 		this.getPrice().setFont(f6);
 		add(this.getPrice());
@@ -45,7 +47,14 @@ public class ProductItem extends JPanel{
 		this.setBasket(new ConfirmButton("In den Warenkorb"));
 		this.getBasket().setBounds(57, 216, 116, 23);
 		add(this.getBasket());
-		
+	}
+	
+	public ProductItem(int cdId, String titleText, double priceText, String descr){
+		this();
+		this.getTitle().setText(""+titleText);
+		this.getPrice().setText(""+priceText);
+			
+	}
 		
 //		
 //		lblNewLabel_2.setIcon(new ImageIcon(Product_cut.class.getResource("/images/db.jpg")));
@@ -56,7 +65,7 @@ public class ProductItem extends JPanel{
 //		add(lblNewLabel_2);
 //		
 	
-	}
+	
 
 	public JLabel getTitle() {
 		return title;
@@ -96,6 +105,22 @@ public class ProductItem extends JPanel{
 
 	public void setPicture(ProductPicture picture) {
 		this.picture = picture;
+	}
+
+	public String getTitleText() {
+		return titleText;
+	}
+
+	public void setTitleText(String titleText) {
+		this.titleText = titleText;
+	}
+
+	public double getPriceText() {
+		return priceText;
+	}
+
+	public void setPriceText(double priceText) {
+		this.priceText = priceText;
 	}
 	
 	

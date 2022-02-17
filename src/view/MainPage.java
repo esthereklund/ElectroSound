@@ -1,7 +1,11 @@
 package view;
-
+import model.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import view.menu_components.*;
@@ -10,7 +14,7 @@ import view.menu_components.*;
 public class MainPage extends JFrame{
 		
 	private MainPanel mainPanel;
-
+	
 	public MainPage(){
 		
 		this.setSize(1400, 1050);
@@ -25,7 +29,7 @@ public class MainPage extends JFrame{
 		setVisible(true);
 	}
 	
-	//ButtonListeners
+	//ButtonListeners menu
 	public void alBtnSpecial(ActionListener a) {
 		this.getMainPanel().getUpperPanel().getMenuPanel().getSpecials().addActionListener(a);;
 	}
@@ -51,15 +55,87 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getUpperPanel().getMenuPanel().getTechno().addActionListener(a);;
 	}
 	
+	//button LIsteners side
+	
+	public void alBtnSpecialS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getSpecials().addActionListener(a);;
+	}
+	public void alBtnAmbientS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getAmbient().addActionListener(a);;
+	}
+	public void alBtnBreakbeatS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getBreakbeat().addActionListener(a);;
+	}
+	public void alBtnDownbeatS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getDownbeat().addActionListener(a);;
+	}
+	public void alBtnHouseS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getHouse().addActionListener(a);;
+	}
+	public void alBtnIndustrialS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getIndustrial().addActionListener(a);;
+	}
+	public void alBtnTranceS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getTrance().addActionListener(a);;
+	}
+	public void alBtnTechnoS(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getProduct().getCategoryButtons().getTechno().addActionListener(a);;
+	}
+	
+	
+	//other Buttons
+	public void alBtnSearch(ActionListener a) {
+		this.getMainPanel().getUpperPanel().getSearchButton().addActionListener(a);
+	}
+	public void alBtnToBasket(ActionListener a) {
+	//	this.getMainPanel().getCenterPanel().getBasket().getActualize().addActionListener(a);
+	}
+	public void alBtnToTrash(ActionListener a) {
+	//	this.getMainPanel().getCenterPanel().getBasket().get
+	}
+	public void alBtnToShop(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getBasket().getBack().addActionListener(a);
+	}
+	public void alBtnActual(ActionListener a) {
+		
+	}
+	public void alBtnKasse(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getBasket().getPurchase().addActionListener(a);
+	}
 	
 	
 	//LabelListeners
 	
+	public void mlKonto(MouseListener e) {
+		this.getMainPanel().getUpperPanel().getLabelPanel().getLink1().addMouseListener(e);
+	}
+	
+	public void mlKasse(MouseListener e) {	
+		this.getMainPanel().getUpperPanel().getLabelPanel().getLink0().addMouseListener(e);
+	}
+	
+	public void mlAnmelden(MouseListener e) {
+		this.getMainPanel().getUpperPanel().getLabelPanel().getLink2().addMouseListener(e);
+	} 
+	public void mlLogo(MouseListener e) {
+		this.getMainPanel().getUpperPanel().getLogo().addMouseListener(e);
+	}
+	public void mlBasket(MouseListener e) {	
+		this.getMainPanel().getUpperPanel().getVinyl().addMouseListener(e);
+	}
+	
+
+	
+	//
+	
+	
+	//view Seiten
+	
 	public void viewGuestPage() {
-		this.getMainPanel().getCenterPanel().changeView(true,  false,  false,  false, false);
+		this.getMainPanel().getCenterPanel().changeView(false,  true,  false,  false, false);
 	}
 	public void viewFirstPage() {
-		this.getMainPanel().getCenterPanel().changeView(false,  true,  false,  false,  false);
+		this.getMainPanel().getCenterPanel().changeView(true,  false,  false,  false,  false);
 	}
 	
 	public void viewProductPage() {
@@ -72,6 +148,10 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getCenterPanel().changeView(false,  false,  false,  false,  true);
 	}
 	
+//	public void displaySearchResults(ArrayList<Cd> list) {
+//		this.getMainPanel().displaySearchresults(list);
+//	}
+//	
 	
 	
 	
@@ -81,6 +161,10 @@ public class MainPage extends JFrame{
 	
 	
 	
+
+
+	
+
 	
 	public MainPanel getMainPanel() {
 		return mainPanel;
@@ -88,8 +172,11 @@ public class MainPage extends JFrame{
 	public void setMainPanel(MainPanel mainPanel) {
 		this.mainPanel = mainPanel;
 	}
-	
-	
+
+	public void loadList(List<Cd> list) {
+		this.getMainPanel().getCenterPanel().getListPanel().displayResults(list);
+		
+	}
 	
 }	
 
