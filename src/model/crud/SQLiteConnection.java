@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.DBConnection;
+import model.interfaces.DBConnection;
 
 public class SQLiteConnection implements DBConnection{
 	private static final String URL = "jdbc:sqlite:./DB/Electrosound.db";
@@ -15,22 +15,19 @@ public class SQLiteConnection implements DBConnection{
 	public SQLiteConnection() {
 		try {
 			this.setConnection(DriverManager.getConnection(URL));
+			System.out.println("Verbindung erfolgreich");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public ResultSet getDataFromDatabase() {
-		try(Statement stm = this.getConnection().createStatement()){
-			String sql = "SELECT * FROM artikel";
-			ResultSet res = stm.executeQuery(sql);
-			return res;
-		}catch(Exception e) {
-			
-		}
-		return null;
+	public ResultSet getDataFromDatabase() throws Exception {
+		Statement stm = this.getConnection().createStatement();
+		String sql = "SELECT * FROM cd";
+		ResultSet res = stm.executeQuery(sql);
+		return res;
+	
 	}
 
 	public Connection getConnection() {

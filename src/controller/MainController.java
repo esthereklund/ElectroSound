@@ -1,18 +1,16 @@
 package controller;
 
-import java.awt.Component;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.EventObject;
 import java.util.List;
 
-import javax.swing.ActionMap;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import model.Cd;
 import model.MainModel;
+import model.data.Cd;
+import model.interfaces.Article;
 import view.MainPage;
 import view.menu_components.listItem.ProductItem;
 
@@ -46,27 +44,36 @@ public class MainController extends MouseAdapter{
 		this.getView().alBtnToShop(this::changeToProductPage);
 		this.getView().alBtnKasse(this::changeToGuest);
 		
+		
 		this.getView().mlKonto(this);
 		this.getView().mlKasse(this);
 		this.getView().mlAnmelden(this);
 		this.getView().mlLogo(this);
 		this.getView().mlBasket(this);
-
 	}
 
 	
 	public void getData(ActionEvent e) {
-		try {
-			List<Cd> list = this.getMainModel().getDataFromDB();
-			this.getView().loadList(list);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		List<Article> list = this.getMainModel().loadArticlesFromDB();
+		this.getView().loadList(list);
+		this.alAddToBasket();
 	}
 	
+	private void alAddToBasket() {
+		this.getView().alAddToBasket(this::addItemToBasket);
+	}
+	
+	public void addItemToBasket(ActionEvent e) {
+		
+		JButton btn =(JButton)e.getSource();
+		ProductItem res = (ProductItem)btn.getParent();
+		Integer number = 1;
+		String articleName = res.getTitle().getText();
+		this.getMainModel().addItemToBasket(articleName, number);
+	}
 	
 	private void changeToProductPage(ActionEvent e) {
+		this.getData(e);
 		this.getView().viewProductList();
 	}
 	private void changeToGuest(ActionEvent e) {

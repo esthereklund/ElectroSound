@@ -1,5 +1,8 @@
 package view;
 import model.*;
+import model.data.Cd;
+import model.interfaces.Article;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -103,6 +106,9 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getCenterPanel().getBasket().getPurchase().addActionListener(a);
 	}
 	
+	public void alAddToBasket(ActionListener al) {
+		this.getMainPanel().getCenterPanel().getListPanel().alAddToBasket(al);
+	}
 	
 	//LabelListeners
 	
@@ -124,10 +130,6 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getUpperPanel().getVinyl().addMouseListener(e);
 	}
 	
-
-	
-	//
-	
 	
 	//view Seiten
 	
@@ -137,7 +139,6 @@ public class MainPage extends JFrame{
 	public void viewFirstPage() {
 		this.getMainPanel().getCenterPanel().changeView(true,  false,  false,  false,  false);
 	}
-	
 	public void viewProductPage() {
 		this.getMainPanel().getCenterPanel().changeView(false,  false,  true,  false,  false);
 	}	
@@ -148,23 +149,6 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getCenterPanel().changeView(false,  false,  false,  false,  true);
 	}
 	
-//	public void displaySearchResults(ArrayList<Cd> list) {
-//		this.getMainPanel().displaySearchresults(list);
-//	}
-//	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	
-
 	
 	public MainPanel getMainPanel() {
 		return mainPanel;
@@ -173,7 +157,8 @@ public class MainPage extends JFrame{
 		this.mainPanel = mainPanel;
 	}
 
-	public void loadList(List<Cd> list) {
+	public void loadList(List<Article> list) {
+		System.out.println("Load List ");
 		this.getMainPanel().getCenterPanel().getListPanel().displayResults(list);
 		
 	}

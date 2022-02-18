@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.ScrollPane;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,8 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-import model.Cd;
+import model.data.Cd;
+import model.interfaces.Article;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
@@ -30,8 +32,9 @@ public class ListPanel extends JPanel{
 	private SidePanel sidePanel;
 	private SideNews sideNews;
 	private TitelLabel title;
-	private JPanel scrollbase;
 	private JComboBox combobox;
+	
+	private JPanel scrollbase;
 	private List<ProductItem> results;
 	private JPanel cdList;
 	
@@ -53,29 +56,24 @@ public class ListPanel extends JPanel{
 		this.setScrollbase(new JPanel());
 		this.getScrollbase().setBounds(0, 31, 886, 529);
 		this.getScrollbase().setLayout(null);
+		this.getScrollbase().setOpaque(false);
 		this.add(this.getScrollbase());
-		
-		
+
 		
 		JScrollPane spane = new JScrollPane();
 		spane.setBounds(0, 0, 886, 529);
 		spane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 //		spane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		this.getScrollbase().add(spane);
-		
-	
+		this.getScrollbase().add(spane);	
 		this.setResults(new ArrayList<>());
-		for(int i = 0; i < 10; i++) {
-			this.getResults().add(new ProductItem());
-		}
-		
-//		JPanel results = new JPanel();
+
+
 		this.setCdList(new JPanel());
 		spane.setViewportView(this.getCdList());
 
 //		results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-//		this.getResults().stream().forEach(result->results.add(result));
-		this.getCdList().setLayout(new GridLayout(0, 4, 2, 2));	
+
+		
 																			//Side Panels
 		this.setSidePanel(new SidePanel());
 		this.add(this.getSidePanel());
@@ -85,16 +83,22 @@ public class ListPanel extends JPanel{
 	
 	}
 	
-	public void displayResults(List<Cd> list) {
+	public void displayResults(List<Article> list) {
 		this.getResults().clear();
-//		System.out.println("all clear");
-		list.forEach(a-> this.getResults().add(
-				new ProductItem(a.getCdId(), a.getTitel(), a.getPreis(), a.getBeschreibung())));
+		System.out.println("all clear");
+		list.forEach((Article a)-> this.getResults().add(
+				new ProductItem(a.getArticleId(), a.getArticleTitle(), a.getArticlePrice())));
 		this.getCdList().removeAll();
-		this.getResults().forEach(res->this.getCdList().add(res));
+		
+		this.getCdList().setLayout(new GridLayout(0, 4));	
+		this.getResults().forEach((ProductItem res)->this.getCdList().add(res));
 		this.repaint();
 	}
 	
+	public void alAddToBasket(ActionListener al) {
+		this.getResults().forEach(r->r.getBasket().addActionListener(al));
+	}
+
 	
 	public SidePanel getSidePanel() {
 		return sidePanel;

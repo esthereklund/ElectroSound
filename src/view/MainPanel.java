@@ -2,11 +2,13 @@ package view;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.data.Cd;
 import view.menu_components.footer.InfoPanel;
 import view.menu_components.header.LabelPanel;
 import view.menu_components.header.Logo;
@@ -77,5 +79,7 @@ public class MainPanel extends JPanel{
 	public void setCenterPanel(CenterPanel centerPanel) {
 		this.centerPanel = centerPanel;
 	}
+
+
 	
 }

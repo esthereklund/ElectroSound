@@ -20,38 +20,37 @@ public class ProductItem extends JPanel{
 	private JLabel price;
 	private ConfirmButton basket;
 	private ProductPicture picture;
-	private String titleText;
-	private double priceText;
+
 	
 	public ProductItem() {
 		this.setPreferredSize(new Dimension(220, 250));
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		setLayout(null);
+		this.setLayout(null);
 		
 		Font f6= new Font("Calibri", Font.BOLD, 14); 
 		this.setTitle(new JLabel(""));
-		this.getTitle().setBounds(95, 155, 36, 14);
+		this.getTitle().setBounds(80, 155, 100, 14);
 		this.getTitle().setFont(f6);
 		this.add(this.getTitle());
 		
 		this.setInterpret(new JLabel(""));
-		this.getInterpret().setBounds(82, 173, 66, 14);
+		this.getInterpret().setBounds(82, 173, 100, 14);
 		this.getInterpret().setFont(f6);
 		this.add(this.getInterpret());
 		
 		this.setPrice(new JLabel(""));
-		this.getPrice().setBounds(79, 189, 66, 23);
+		this.getPrice().setBounds(90, 189, 100, 23);
 		this.getPrice().setFont(f6);
 		add(this.getPrice());
 		
-		this.setBasket(new ConfirmButton("In den Warenkorb"));
+		this.setBasket(new ConfirmButton("Kaufen"));
 		this.getBasket().setBounds(57, 216, 116, 23);
 		add(this.getBasket());
 	}
 	
-	public ProductItem(int cdId, String titleText, double priceText, String descr){
+	public ProductItem(int cdId, String titleText, double priceText){
 		this();
-		this.getTitle().setText(""+titleText);
+		this.getTitle().setText(titleText);
 		this.getPrice().setText(""+priceText);
 			
 	}
@@ -107,21 +106,6 @@ public class ProductItem extends JPanel{
 		this.picture = picture;
 	}
 
-	public String getTitleText() {
-		return titleText;
-	}
-
-	public void setTitleText(String titleText) {
-		this.titleText = titleText;
-	}
-
-	public double getPriceText() {
-		return priceText;
-	}
-
-	public void setPriceText(double priceText) {
-		this.priceText = priceText;
-	}
 	
 	
 }
