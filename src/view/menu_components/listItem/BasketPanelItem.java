@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.BevelBorder;
 
 public class BasketPanelItem extends JPanel{
@@ -67,22 +68,25 @@ public class BasketPanelItem extends JPanel{
 		this.getTrash().setBounds(560, 43, 35, 31);
 		add(this.getTrash());
 		
-		this.setPrice(new JLabel("24,90"));
+		this.setPrice(new JLabel(""));
 		this.getPrice().setBounds(651, 53, 46, 20);
 		this.getPrice().setFont(f1);
 		add(this.getPrice());
 		
-		this.setTotal(new JLabel("49,80"));
+		this.setTotal(new JLabel(""));
 		this.getTotal().setBounds(757, 53, 46, 20);
 		this.getTotal().setFont(f1);
 		add(this.getTotal());
 																	//Spinner
 		this.setNumber(new JSpinner());
-		//this.getNumber().setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
-//		SpinnerModel model = new SpinnerModel(1, 2, 0, 0); 
+		SpinnerModel model = new SpinnerNumberModel(1, 0, 10, 1); 
 		this.getNumber().setBounds(455, 51, 46, 22);
-//		this.getNumber().setModel(model);
+		this.getNumber().setModel(model);
 		add(this.getNumber());
+		
+		this.setPicture(new JLabel());
+		this.getPicture().setBounds(20, 20, 150, 150);
+		this.add(this.getPicture());
 	}
 	
 	//Konstruktor BasketPanel Item mit Parametern
@@ -92,6 +96,12 @@ public class BasketPanelItem extends JPanel{
 		this.getPrice().setText(""+price);
 	}
 	
+	public BasketPanelItem(ImageIcon icon, String title, double price) {
+		this();
+		this.getPicture().setIcon(icon);
+		this.getTitle().setText(title);
+		this.getPrice().setText(""+price);
+	}
 	
 	//GETTER, SETTER
 	public JLabel getPicture() {

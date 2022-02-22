@@ -63,14 +63,10 @@ public class ListPanel extends JPanel{
 		JScrollPane spane = new JScrollPane();
 		spane.setBounds(0, 0, 886, 529);
 		spane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-//		spane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		this.getScrollbase().add(spane);	
 		this.setResults(new ArrayList<>());									//Array von Ergebnisse
 		this.setCdList(new JPanel());										//Panel für Array von Ergebnisse
 		spane.setViewportView(this.getCdList());
-
-//		results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-		
 																			//Side Panels
 		this.setSidePanel(new SidePanel());
 		this.add(this.getSidePanel());
@@ -85,21 +81,25 @@ public class ListPanel extends JPanel{
 		this.getResults().clear();
 		System.out.println("Display results in List Panel ");
 		list.forEach((Article a)-> this.getResults().add(
-				new ProductItem(a.getArticleId(), a.getArticleTitle(), a.getArticlePrice())));
+				new ProductItem(a.getIcon(), a.getArticleId(), a.getArticleTitle(), a.getArticlePrice())));
 //		this.getCdList().removeAll();
 		this.getCdList().setLayout(new GridLayout(0, 4));	
 		this.getResults().forEach((ProductItem res)->this.getCdList().add(res));
 		this.repaint();
 	}
 	
-	//Action Listener zum Button Warenkornb in ListPAnel
+	//Action Listener zum Button Warenkornb in ListPanel
 	public void alAddToBasket(ActionListener al) {
 		this.getResults().forEach(r->r.getBasket().addActionListener(al));
 	}
 
 	
-	//GETTER, SETTER
+	//Mouse Listener zum Label
 	
+	
+	
+	
+	//GETTER, SETTER
 	public SidePanel getSidePanel() {
 		return sidePanel;
 	}

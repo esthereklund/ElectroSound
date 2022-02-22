@@ -108,12 +108,12 @@ public class MainPage extends JFrame{
 		this.getMainPanel().getCenterPanel().getBasket().getPurchase().addActionListener(a);
 	}
 	
-	public void alAddToBasket(ActionListener al) {
-		this.getMainPanel().getCenterPanel().getListPanel().alAddToBasket(al);
+	public void alAddToBasket(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getListPanel().alAddToBasket(a);
 	}
 	
-	public void confirmPurchase(ActionListener al) {
-		this.getMainPanel().getCenterPanel().getGuest().alToConfirmButton(al);
+	public void confirmPurchase(ActionListener a) {
+		this.getMainPanel().getCenterPanel().getGuest().alToConfirmButton(a);
 		
 	}
 	

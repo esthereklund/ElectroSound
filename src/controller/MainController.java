@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -46,12 +47,16 @@ public class MainController extends MouseAdapter{
 		this.getView().alBtnTranceS(this::changeToProductPage);
 		this.getView().alBtnTechnoS(this::changeToProductPage);
 		
-		//Buttons on BAasketPage
+		//Buttons on BasketPage
 		this.getView().alBtnSearch(this::changeToProductPage);
 		this.getView().alBtnToShop(this::changeToProductPage);
 		this.getView().alBtnKasse(this::changeToGuest);
 		
-		//Change Views
+		//Button on Confirm
+		this.getView().confirmPurchase(this::confirmPurchase);
+		//Links on Article
+		
+		//Change Views from Links
 		this.getView().mlKonto(this);
 		this.getView().mlKasse(this);
 		this.getView().mlAnmelden(this);
@@ -59,13 +64,7 @@ public class MainController extends MouseAdapter{
 		this.getView().mlBasket(this);
 	}
 
-	//Nimmt Daten vom Modell und übergibt an View, Action Listener on Button "Kaufen"
-	public void getData(ActionEvent e) {
-		List<Article> list = this.getMainModel().getSortmentAsList();
-		System.out.println("getData in Controller");
-		this.getView().loadList(list);
-		this.alAddToBasket();
-	}
+
 	
 	//Action Listener to Button "Kaufen"
 	private void alAddToBasket() {
@@ -86,21 +85,33 @@ public class MainController extends MouseAdapter{
 	public void confirmPurchase(ActionEvent e) {
 		var btn = (JButton)e.getSource();
 		var guest = (GuestPage)btn.getParent();
-		String email = guest.getMail_().getText();
-		String surname = guest.getSurname_().getText();
-		String name = guest.getName_().getText();
-		String house = guest.getNumber_().getText();
-		String street = guest.getStreet_().getText();
-		String index = guest.getIndex_().getText();
-		String city = guest.getCity_().getText();
+//		String email = guest.getMail_().getText();
+//		String surname = guest.getSurname_().getText();
+//		String name = guest.getName_().getText();
+//		String house = guest.getNumber_().getText();
+//		String street = guest.getStreet_().getText();
+//		String index = guest.getIndex_().getText();
+//		String city = guest.getCity_().getText();
 		Map<String, String> data = new HashMap<>();
-		data.put(email, guest.getMail_().getText());
-		data.put(surname, guest.getSurname_().getText());
-		data.put(name, guest.getName_().getText());
-		data.put(street, guest.getStreet_().getText());
-		data.put(house, guest.getNumber_().getText());
-		data.put(index, guest.getIndex_().getText());
-		data.put(city, guest.getCity_().getText());
+		data.put("Email*", guest.getMail_().getText());
+		data.put("Name*", guest.getSurname_().getText());
+		data.put("Vorname*", guest.getName_().getText());
+		data.put("Strasse*", guest.getStreet_().getText());
+		data.put("Hausnummer*", guest.getNumber_().getText());
+		data.put("PLZ*", guest.getIndex_().getText());
+		data.put("Ort*", guest.getCity_().getText());
+		this.getView().viewFirstPage();
+		
+	}
+	
+	//Nimmt Daten vom Modell und übergibt an View, Action Listener on Button "Kaufen"
+	public void getData(ActionEvent e) {
+		List<Article> list = this.getMainModel().getSortmentAsList();
+		System.out.println("getData in Controller");
+		this.getView().loadList(list);
+		this.alAddToBasket();
+//		this.getView().getMainPanel().getCenterPanel().getListPanel().getResults().get(0).getPicture().setIcon(icon);
+		
 	}
 	
 	//Geht zur Produktseite, lädt die Liste
@@ -121,8 +132,13 @@ public class MainController extends MouseAdapter{
 	private void changeToFirst(ActionEvent e) {
 		this.getView().viewFirstPage();
 	}
+	//Zur ProduktSeite
 	private void changeToProduct(ActionEvent e) {
 		this.getView().viewProductPage();
+	}
+	//Danke Seite
+	private void changeToThanks(ActionEvent e) {
+		this.getView().viewFirstPage();
 	}
 	
 	

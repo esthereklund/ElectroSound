@@ -2,6 +2,8 @@ package model.data;
 
 import java.util.Objects;
 
+import javax.swing.ImageIcon;
+
 import model.interfaces.Article;
 
 public class Cd implements Article{
@@ -11,6 +13,7 @@ public class Cd implements Article{
 	private String beschreibung;
 	private String datum;
 	private boolean special;
+	private ImageIcon icon;
 	
 	public Cd(int cdId, String titel, double preis) {
 		this.setArticleId(cdId);
@@ -18,7 +21,13 @@ public class Cd implements Article{
 		this.setArticlePrice(preis);
 		
 	}
-
+	
+	public Cd(ImageIcon icon, int cdId, String titel, double preis) {
+		this.setIcon(icon);
+		this.setArticleId(cdId);
+		this.setArticleTitle(titel);
+		this.setArticlePrice(preis);
+	}
 	
 	//ToString
 	@Override
@@ -92,6 +101,14 @@ public class Cd implements Article{
 
 	public void setSpecial(boolean special) {
 		this.special = special;
+	}
+
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
 	}
 	
 	

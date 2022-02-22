@@ -128,22 +128,13 @@ public class BasketPage extends JPanel{
 		this.getScrollbase().add(spaneHere);
 		
 		this.setToBuy(new ArrayList<>());
-//		for(int i= 0; i<10;i++) {
-//			this.getToBuy().add(new BasketPanelItem(""+i, i));
-//		}
+
 		this.setResults(new JPanel());
 		
 		spaneHere.setViewportView(this.getResults());
-	//	this.getResults().setLayout(null);
-	//	this.getResults().setLayout(new GridLayout(this.getToBuy().size(), 1));
-	///	this.getToBuy().stream().forEach(item-> this.getResults().add(item));
-	//	results.setLayout(new GridLayout(0, 1, 0, 3));	
-	//	results.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-	//	results.setLayout(new BoxLayout());
-		
-//		for(int i = 0; i<numberItems; i++) {
-//			results.add(new BasketItem());
-//		}
+
+
+
 		
 		
 	}
@@ -153,10 +144,10 @@ public class BasketPage extends JPanel{
 		System.out.println("Aktualisiere Basket Panel");
 		this.getToBuy().clear();
 		basket.getBasketItems().forEach(item-> this.getToBuy()
-				.add(new BasketPanelItem(item.getArticle().getArticleTitle(), item.getArticle().getArticlePrice())));
+				.add(new BasketPanelItem(item.getArticle().getIcon(), item.getArticle().getArticleTitle(), item.getArticle().getArticlePrice())));
 		this.getResults().removeAll();
 		this.getResults().setLayout(new GridLayout(this.getToBuy().size(), 1));
-	//	this.getResults().setLayout(new FlowLayout(FlowLayout.CENTER));
+	//	this.getResults().setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
 		this.getToBuy().forEach(item->this.getResults().add(item));
 		this.revalidate();
 		this.repaint();

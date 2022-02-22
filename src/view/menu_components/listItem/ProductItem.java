@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
 import view.menu_components.buttons.ConfirmButton;
@@ -19,7 +20,7 @@ public class ProductItem extends JPanel{
 	private JLabel interpret;
 	private JLabel price;
 	private ConfirmButton basket;
-	private ProductPicture picture;
+	private JLabel picture;
 
 	//Parameterloser Konstruktor von Produkt Panel
 	public ProductItem() {
@@ -29,24 +30,29 @@ public class ProductItem extends JPanel{
 		
 		Font f6= new Font("Calibri", Font.BOLD, 14); 
 		this.setTitle(new JLabel(""));
-		this.getTitle().setBounds(70, 155, 120, 14);
-		this.getTitle().setAlignmentX(CENTER_ALIGNMENT);
+		this.getTitle().setBounds(0, 180, 220, 14);
+		this.getTitle().setHorizontalAlignment(SwingConstants.CENTER);
 		this.getTitle().setFont(f6);
 		this.add(this.getTitle());
 		
 		this.setInterpret(new JLabel(""));
-		this.getInterpret().setBounds(82, 173, 100, 14);
+		this.getInterpret().setBounds(82, 200, 220, 14);
 		this.getInterpret().setFont(f6);
 		this.add(this.getInterpret());
 		
 		this.setPrice(new JLabel(""));
-		this.getPrice().setBounds(90, 189, 100, 23);
+		this.getPrice().setBounds(0, 210, 220, 23);
+		this.getPrice().setHorizontalAlignment(SwingConstants.CENTER);
 		this.getPrice().setFont(f6);
 		add(this.getPrice());
 		
 		this.setBasket(new ConfirmButton("Kaufen"));
-		this.getBasket().setBounds(57, 216, 116, 23);
+		this.getBasket().setBounds(67, 230, 85, 20);
 		add(this.getBasket());
+		
+		this.setPicture(new JLabel());
+		this.getPicture().setBounds(35, 20, 150, 150);
+		add(this.getPicture());
 	}
 	//Konstruktor vom Produkt mit Parametern
 	public ProductItem(int cdId, String titleText, double priceText){
@@ -55,16 +61,14 @@ public class ProductItem extends JPanel{
 		this.getPrice().setText(""+priceText);
 			
 	}
-		
-//		
-//		lblNewLabel_2.setIcon(new ImageIcon(Product_cut.class.getResource("/images/db.jpg")));
-//		ImageIcon disc_u = new ImageIcon(getClass().getResource("/images/db.jpg"));
-//		Image disc = disc_u.getImage().getScaledInstance(124, 124, 0);
-//		lblNewLabel_2.setIcon(new ImageIcon(disc));
-//		lblNewLabel_2.setBounds(49, 23, 124, 124);
-//		add(lblNewLabel_2);
-//		
 	
+	public ProductItem(ImageIcon picture, int cdId, String titleText, double priceText){
+		this();
+		this.getPicture().setIcon(picture);
+		this.getTitle().setText(titleText);
+		this.getPrice().setText(""+priceText);
+			
+	}
 	
 
 	public JLabel getTitle() {
@@ -99,11 +103,11 @@ public class ProductItem extends JPanel{
 		this.basket = basket;
 	}
 
-	public ProductPicture getPicture() {
+	public JLabel getPicture() {
 		return picture;
 	}
 
-	public void setPicture(ProductPicture picture) {
+	public void setPicture(JLabel picture) {
 		this.picture = picture;
 	}
 
