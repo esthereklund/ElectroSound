@@ -11,9 +11,10 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerModel;
 import javax.swing.border.BevelBorder;
 
-public class BasketItem extends JPanel{
+public class BasketPanelItem extends JPanel{
 	private JLabel picture;
 	private JLabel title;
 	private JLabel interpret;
@@ -24,7 +25,8 @@ public class BasketItem extends JPanel{
 	private JLabel total;
 	private JSpinner number; 
 	
-	public BasketItem() {
+	//Konstruktor Paremeterlos
+	public BasketPanelItem() {
 		Font f1 = new Font("Calibri", Font.BOLD, 18);
 		Font f2 = new Font("Calibri", Font.BOLD, 16);
 		Font f3 = new Font("Calibri", Font.PLAIN, 12);
@@ -74,13 +76,24 @@ public class BasketItem extends JPanel{
 		this.getTotal().setBounds(757, 53, 46, 20);
 		this.getTotal().setFont(f1);
 		add(this.getTotal());
-		
+																	//Spinner
 		this.setNumber(new JSpinner());
 		//this.getNumber().setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+//		SpinnerModel model = new SpinnerModel(1, 2, 0, 0); 
 		this.getNumber().setBounds(455, 51, 46, 22);
+//		this.getNumber().setModel(model);
 		add(this.getNumber());
 	}
-
+	
+	//Konstruktor BasketPanel Item mit Parametern
+	public BasketPanelItem(String title, double price) {
+		this();
+		this.getTitle().setText(title);
+		this.getPrice().setText(""+price);
+	}
+	
+	
+	//GETTER, SETTER
 	public JLabel getPicture() {
 		return picture;
 	}

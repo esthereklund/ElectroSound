@@ -12,6 +12,9 @@ public class BasketItem {
 	}
 	
 	
+
+
+	//GETTER, SETTER
 	public int getNumber() {
 		return number;
 	}

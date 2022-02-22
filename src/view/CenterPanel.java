@@ -41,6 +41,9 @@ public class CenterPanel extends JPanel{
 		
 		
 	}
+	
+	// Zentralpanel auswechseln
+	
 	public void changeView(boolean first, boolean guest, boolean productPage, boolean listPanel, boolean basketPage) {
 		this.getFirst().setVisible(first);
 		this.getGuest().setVisible(guest);

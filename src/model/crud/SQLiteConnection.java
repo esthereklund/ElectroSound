@@ -12,6 +12,8 @@ import model.interfaces.DBConnection;
 public class SQLiteConnection implements DBConnection{
 	private static final String URL = "jdbc:sqlite:./DB/Electrosound.db";
 	private Connection connection;
+	
+	//Konstruktor
 	public SQLiteConnection() {
 		try {
 			this.setConnection(DriverManager.getConnection(URL));
@@ -20,7 +22,8 @@ public class SQLiteConnection implements DBConnection{
 			e.printStackTrace();
 		}
 	}
-
+	
+	//Methode vom Interface
 	@Override
 	public ResultSet getDataFromDatabase() throws Exception {
 		Statement stm = this.getConnection().createStatement();
@@ -29,7 +32,8 @@ public class SQLiteConnection implements DBConnection{
 		return res;
 	
 	}
-
+	
+	//GETTER, SETTER
 	public Connection getConnection() {
 		return connection;
 	}

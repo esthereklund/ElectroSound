@@ -1,5 +1,7 @@
 package model.data;
 
+import java.util.Objects;
+
 import model.interfaces.Article;
 
 public class Cd implements Article{
@@ -16,12 +18,34 @@ public class Cd implements Article{
 		this.setArticlePrice(preis);
 		
 	}
+
 	
+	//ToString
 	@Override
 	public String toString() {
 		return "Cd[cdId=" + articleId+ ", titel=" + articleTitle +  ", preis=" + articlePrice +"]";
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(articleId, articleTitle, articlePrice);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cd other = (Cd) obj;
+		return articleId == other.articleId
+				&& Double.doubleToLongBits(articlePrice) == Double.doubleToLongBits(other.articlePrice)
+				&& Objects.equals(articleTitle, other.articleTitle);
+	}
+
+	//GETTER, SETTER
 	public int getArticleId() {
 		return articleId;
 	}

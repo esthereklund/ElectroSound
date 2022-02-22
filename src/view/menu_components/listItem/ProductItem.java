@@ -21,7 +21,7 @@ public class ProductItem extends JPanel{
 	private ConfirmButton basket;
 	private ProductPicture picture;
 
-	
+	//Parameterloser Konstruktor von Produkt Panel
 	public ProductItem() {
 		this.setPreferredSize(new Dimension(220, 250));
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -29,7 +29,8 @@ public class ProductItem extends JPanel{
 		
 		Font f6= new Font("Calibri", Font.BOLD, 14); 
 		this.setTitle(new JLabel(""));
-		this.getTitle().setBounds(80, 155, 100, 14);
+		this.getTitle().setBounds(70, 155, 120, 14);
+		this.getTitle().setAlignmentX(CENTER_ALIGNMENT);
 		this.getTitle().setFont(f6);
 		this.add(this.getTitle());
 		
@@ -47,7 +48,7 @@ public class ProductItem extends JPanel{
 		this.getBasket().setBounds(57, 216, 116, 23);
 		add(this.getBasket());
 	}
-	
+	//Konstruktor vom Produkt mit Parametern
 	public ProductItem(int cdId, String titleText, double priceText){
 		this();
 		this.getTitle().setText(titleText);

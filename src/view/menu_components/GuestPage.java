@@ -1,6 +1,7 @@
 package view.menu_components;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -120,7 +121,11 @@ public class GuestPage extends JPanel{
 		formular.add(this.getConfirmButton());
 	}
 
-
+	public void alToConfirmButton(ActionListener al) {
+		this.getConfirmButton().addActionListener(al);
+	}
+	
+	//GETTER, SETTER
 	public JLabel getMail() {
 		return mail;
 	}

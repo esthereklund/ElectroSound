@@ -48,6 +48,9 @@ public class MainPanel extends JPanel{
 		
 	}
 	
+	
+	//GETTER, SETTER
+	
 	public HeaderPanel getUpperPanel() {
 		return upperPanel;
 	}

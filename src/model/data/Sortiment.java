@@ -12,10 +12,7 @@ public class Sortiment {
 		this.setAllArticles(new HashSet<>());
 	}
 	
-	
-	
-	
-	
+	//GETTER, SETTER
 	public Set<Article> getAllArticles() {
 		return allArticles;
 	}
